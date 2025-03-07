@@ -1,0 +1,4 @@
+<h1>Welcome to {{title}}</h1>
+
+<!-- Composant compteur avec l'événement de laValeur écouté -->
+<app-compteur [counter]="5" (getValue)="laValeur($event)"></app-compteur>
