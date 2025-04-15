@@ -48,7 +48,7 @@ Prérequis
 Node.js >= 18
 Angular CLI (npm install -g @angular/cli)
 Étapes
-git clone https://github.com/ton-utilisateur/projet-formation.git (demande si possible)
+git clone https://github.com/Kcelemmano-26/projet-formation.git (demande si possible)
 cd projet-formation
 npm install
 npm start
