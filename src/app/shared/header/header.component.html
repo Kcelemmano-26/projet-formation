@@ -1,0 +1,51 @@
+<mat-toolbar color="primary" class="navbar">
+  <span class="logo">MonApp</span>
+  <span class="spacer"></span>
+  
+  <!-- Menu desktop -->
+  <nav class="desktop-menu">
+    <a mat-button routerLink="/home" routerLinkActive="active">Accueil</a>
+    <a mat-button routerLink="/features" routerLinkActive="active">Fonctionnalités</a>
+    <a mat-button routerLink="/pricing" routerLinkActive="active">Tarifs</a>
+    <a mat-button routerLink="/contact" routerLinkActive="active">Contact</a>
+  </nav>
+  
+  <!-- Boutons d'authentification desktop -->
+  <div class="auth-buttons desktop-menu">
+    <a mat-stroked-button routerLink="/login">Se connecter</a>
+    <a mat-flat-button color="accent" routerLink="/register">S'inscrire</a>
+  </div>
+
+  <!-- Menu mobile -->
+  <button mat-icon-button [matMenuTriggerFor]="menu" class="mobile-menu-button">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <a mat-menu-item routerLink="/home" routerLinkActive="active">
+      <mat-icon>home</mat-icon>
+      <span>Accueil</span>
+    </a>
+    <a mat-menu-item routerLink="/features" routerLinkActive="active">
+      <mat-icon>featured_play_list</mat-icon>
+      <span>Fonctionnalités</span>
+    </a>
+    <a mat-menu-item routerLink="/pricing" routerLinkActive="active">
+      <mat-icon>attach_money</mat-icon>
+      <span>Tarifs</span>
+    </a>
+    <a mat-menu-item routerLink="/contact" routerLinkActive="active">
+      <mat-icon>contact_support</mat-icon>
+      <span>Contact</span>
+    </a>
+    <mat-divider></mat-divider>
+    <a mat-menu-item routerLink="/login">
+      <mat-icon>login</mat-icon>
+      <span>Se connecter</span>
+    </a>
+    <a mat-menu-item routerLink="/register">
+      <mat-icon>person_add</mat-icon>
+      <span>S'inscrire</span>
+    </a>
+  </mat-menu>
+</mat-toolbar>

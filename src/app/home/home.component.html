@@ -1,0 +1,161 @@
+<mat-toolbar color="primary" class="navbar">
+  <span class="logo">MonApp</span>
+  <span class="spacer"></span>
+  
+  <!-- Menu desktop -->
+  <nav class="desktop-menu">
+    <a mat-button routerLink="/home" routerLinkActive="active">Accueil</a>
+    <a mat-button routerLink="/features">Fonctionnalités</a>
+    <a mat-button routerLink="/pricing">Tarifs</a>
+    <a mat-button routerLink="/contact">Contact</a>
+  </nav>
+  
+  <!-- Boutons d'authentification desktop -->
+  <div class="auth-buttons desktop-menu">
+    <a mat-stroked-button routerLink="/login">Se connecter</a>
+    <a mat-flat-button color="accent" routerLink="/register">S'inscrire</a>
+  </div>
+
+  <!-- Menu mobile -->
+  <button mat-icon-button [matMenuTriggerFor]="menu" class="mobile-menu-button">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <a mat-menu-item routerLink="/home">
+      <mat-icon>home</mat-icon>
+      <span>Accueil</span>
+    </a>
+    <a mat-menu-item routerLink="/features">
+      <mat-icon>featured_play_list</mat-icon>
+      <span>Fonctionnalités</span>
+    </a>
+    <a mat-menu-item routerLink="/pricing">
+      <mat-icon>attach_money</mat-icon>
+      <span>Tarifs</span>
+    </a>
+    <a mat-menu-item routerLink="/contact">
+      <mat-icon>contact_support</mat-icon>
+      <span>Contact</span>
+    </a>
+    <mat-divider></mat-divider>
+    <a mat-menu-item routerLink="/login">
+      <mat-icon>login</mat-icon>
+      <span>Se connecter</span>
+    </a>
+    <a mat-menu-item routerLink="/register">
+      <mat-icon>person_add</mat-icon>
+      <span>S'inscrire</span>
+    </a>
+  </mat-menu>
+</mat-toolbar>
+
+<main>
+  <!-- Section Hero avec Slider -->
+  <section class="hero">
+    <div class="slider-container">
+      <div class="slides">
+        <div class="slide" *ngFor="let slide of slides; let i = index" 
+             [class.active]="i === currentSlide"
+             [style.backgroundImage]="'url(' + slide.image + ')'">
+          <div class="slide-content">
+            <h1>{{slide.title}}</h1>
+            <p class="subtitle">{{slide.subtitle}}</p>
+            <div class="cta-buttons">
+              <a mat-flat-button color="primary" routerLink="/register">
+                {{slide.cta}}
+                <mat-icon>arrow_forward</mat-icon>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slider-dots">
+        <button class="dot" *ngFor="let slide of slides; let i = index" 
+                [class.active]="i === currentSlide"
+                (click)="setCurrentSlide(i)">
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Fonctionnalités -->
+  <section id="features" class="features">
+    <h2>Nos Fonctionnalités</h2>
+    <div class="features-grid">
+      <mat-card *ngFor="let feature of features" class="feature-card">
+        <mat-icon class="feature-icon">{{feature.icon}}</mat-icon>
+        <mat-card-title>{{feature.title}}</mat-card-title>
+        <mat-card-content>
+          <p>{{feature.description}}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </section>
+
+  <!-- Section Témoignages -->
+  <section class="testimonials">
+    <h2>Ce que disent nos clients</h2>
+    <div class="testimonials-grid">
+      <mat-card *ngFor="let testimonial of testimonials" class="testimonial-card">
+        <mat-card-header>
+          <img mat-card-avatar [src]="testimonial.avatar" [alt]="testimonial.name">
+          <mat-card-title>{{testimonial.name}}</mat-card-title>
+          <mat-card-subtitle>{{testimonial.role}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{testimonial.content}}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </section>
+
+  <!-- Section Call-to-Action -->
+  <section class="cta-section">
+    <h2>Prêt à commencer ?</h2>
+    <p>Rejoignez des milliers d'entreprises qui nous font confiance</p>
+    <a mat-flat-button color="primary" routerLink="/register">
+      Créer un compte gratuit
+      <mat-icon>arrow_forward</mat-icon>
+    </a>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>MonApp</h3>
+      <p>La solution complète pour votre entreprise</p>
+    </div>
+    <div class="footer-section">
+      <h3>Liens rapides</h3>
+      <a routerLink="/features">Fonctionnalités</a>
+      <a routerLink="/pricing">Tarifs</a>
+      <a routerLink="/contact">Contact</a>
+    </div>
+    <div class="footer-section">
+      <h3>Légal</h3>
+      <a routerLink="/privacy">Confidentialité</a>
+      <a routerLink="/terms">Conditions d'utilisation</a>
+    </div>
+    <div class="footer-section">
+      <h3>Suivez-nous</h3>
+      <div class="social-links">
+        <a href="#" target="_blank" aria-label="Facebook">
+          <mat-icon>facebook</mat-icon>
+        </a>
+        <a href="#" target="_blank" aria-label="Twitter">
+          <mat-icon>twitter</mat-icon>
+        </a>
+        <a href="#" target="_blank" aria-label="LinkedIn">
+          <mat-icon>linkedin</mat-icon>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 MonApp. Tous droits réservés.</p>
+  </div>
+</footer>

@@ -1,0 +1,24 @@
+<app-header></app-header>
+<div class="features-container">
+  <header class="features-header">
+    <h1>Nos Fonctionnalités</h1>
+    <p class="subtitle">Découvrez tous les outils qui font la différence</p>
+  </header>
+
+  <div class="features-grid">
+    <mat-card class="feature-card" *ngFor="let feature of features">
+      <mat-card-content>
+        <mat-icon class="feature-icon">{{feature.icon}}</mat-icon>
+        <h2>{{feature.title}}</h2>
+        <p>{{feature.description}}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <section class="cta-section">
+    <h2>Prêt à commencer ?</h2>
+    <p>Rejoignez des milliers d'utilisateurs satisfaits</p>
+    <button mat-raised-button color="primary">Essayer gratuitement</button>
+  </section>
+</div>
+<app-footer></app-footer>

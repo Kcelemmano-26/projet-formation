@@ -1,0 +1,65 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="welcome-message">
+      <h1>Bienvenue !</h1>
+      <p>Connectez-vous pour accéder à votre espace personnel et profiter de tous nos services.</p>
+    </div>
+
+    <div class="social-login">
+      <button mat-stroked-button class="google-btn" (click)="loginWithGoogle()">
+        <img src="../assets/icons/google.svg" alt="Google" />
+        Continuer avec Google
+      </button>
+      <button mat-stroked-button class="facebook-btn" (click)="loginWithFacebook()">
+        <img src="../assets/icons/facebook.svg" alt="Facebook" />
+        Continuer avec Facebook
+      </button>
+      <button mat-stroked-button class="github-btn" (click)="loginWithGithub()">
+        <img src="../assets/icons/github.svg" alt="GitHub" />
+        Continuer avec GitHub
+      </button>
+    </div>
+
+    <div class="divider">
+      <span>ou</span>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" type="email" required />
+        <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+          Email requis
+        </mat-error>
+        <mat-error *ngIf="loginForm.get('email')?.hasError('email')">
+          Email invalide
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Mot de passe</mat-label>
+        <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" required />
+        <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" type="button">
+          <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+          Mot de passe requis
+        </mat-error>
+      </mat-form-field>
+
+      <div class="form-actions">
+        <mat-checkbox color="primary">Se souvenir de moi</mat-checkbox>
+        <a href="#" class="forgot-link">Mot de passe oublié?</a>
+      </div>
+
+      <button mat-flat-button color="primary" type="submit" [disabled]="loginForm.invalid">
+        Se connecter
+      </button>
+    </form>
+
+    <div class="register">
+      <span>Pas encore de compte?</span>
+      <a routerLink="/register">S'inscrire</a>
+    </div>
+  </div>
+</div>
